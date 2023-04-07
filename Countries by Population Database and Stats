@@ -246,5 +246,5 @@ ELSE "extra small"
 END as "population size"
 FROM countries;
 
---
-SELECT name, SUM(net_migrants) AS total_migrants FROM countries GROUP BY name HAVING total_migrants > 5000 ORDER BY total_migrants asc;
+--Filter data to show population and fertility rates when median age is greater than 25
+SELECT name, population, fertility_rate, median_age FROM countries GROUP BY median_age HAVING COUNT (median_age) >= 25;
