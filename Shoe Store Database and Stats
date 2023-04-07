@@ -1,0 +1,31 @@
+--Create a shoe store(jmart) database
+
+CREATE TABLE jmart (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, size TEXT, quantity INTEGER, brand TEXT);
+
+INSERT INTO jmart VALUES (1, "RETRO 1", 100, "S", 3, "jordan");
+INSERT INTO jmart VALUES (2, "RETRO 4", 100, "S", 5, "jordan");
+INSERT INTO jmart VALUES (3, "RETRO 6", 120, "S", 2, "jordan");
+INSERT INTO jmart VALUES (4, "RETRO 1", 160, "L", 3, "jordan");
+INSERT INTO jmart VALUES (5, "RETRO 1", 100, "S", 3, "nike");
+INSERT INTO jmart VALUES (6, "RETRO 1", 100, "M", 3, "jordan");
+INSERT INTO jmart VALUES (7, "RETRO 4", 90, "S", 5, "jordan");
+INSERT INTO jmart VALUES (8, "RETRO 6", 120, "L", 2, "nike");
+INSERT INTO jmart VALUES (9, "RETRO 1", 80, "M", 3, "jordan");
+INSERT INTO jmart VALUES (10, "RETRO 1", 75, "S", 4, "jordan");
+INSERT INTO jmart VALUES (11, "RETRO 1", 100, "L", 3, "nike");
+INSERT INTO jmart VALUES (12, "RETRO 4", 100, "L", 5, "jordan");
+INSERT INTO jmart VALUES (13, "AIR MAX 95", 110, "M", 2, "nike");
+INSERT INTO jmart VALUES (14, "AIR FORCE 1", 130, "L", 3, "nike");
+INSERT INTO jmart VALUES (15, "RETRO 1", 90, "S", 3, "jordan");
+
+--display the database ordered by price. 
+SELECT * FROM jmart ORDER BY price desc;
+
+--display the database ordered by price for items less than $100
+SELECT * FROM jmart WHERE price <100 ORDER BY price desc;
+
+--what is the avg price of items in the store? 
+SELECT AVG(price) FROM jmart;
+
+
+
