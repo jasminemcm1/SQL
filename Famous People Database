@@ -1,0 +1,62 @@
+/* Create table about the people and what they do here */
+
+
+CREATE TABLE singers (
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+name TEXT); 
+
+INSERT INTO singers (name) VALUES ("Whitney Houston");
+INSERT INTO singers (name) VALUES ("Michael Jackson");
+INSERT INTO singers (name) VALUES ("Beyonce");
+INSERT INTO singers (name) VALUES ("Rihanna");
+INSERT INTO singers (name) VALUES ("Aretha Franklin");
+INSERT INTO singers (name) VALUES ("Sam Cooke");
+INSERT INTO singers (name) VALUES ("Mariah Carey");
+INSERT INTO singers (name) VALUES ("Marvin Gay");
+INSERT INTO singers (name) VALUES ("Prince");
+INSERT INTO singers (name) VALUES ("Tina Turner");
+
+CREATE TABLE accomplishments ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+grammys INTEGER, movies INTEGER, albums INTEGER);
+
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (6, 7, 7);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (13, 12, 10);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (29, 10, 7);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (9, 7, 8);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (20, 5, 39);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (2, 1, 11);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (5, 18, 15);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (3, 4, 28);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (7, 5, 42);
+INSERT INTO accomplishments (grammys, movies, albums) VALUES (7, 4, 9);
+
+CREATE TABLE record_label (
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+record_label TEXT);
+
+INSERT INTO record_label (record_label) VALUES ("RCA"); 
+INSERT INTO record_label (record_label) VALUES ("Motown");
+INSERT INTO record_label (record_label) VALUES ("Columbia");
+INSERT INTO record_label (record_label) VALUES ("Roc Nation");
+INSERT INTO record_label (record_label) VALUES ("Columbia, RCA");
+INSERT INTO record_label (record_label) VALUES ("RCA");
+INSERT INTO record_label (record_label) VALUES ("Columbia");
+INSERT INTO record_label (record_label) VALUES ("Motown");
+INSERT INTO record_label (record_label) VALUES ("Warner Bros");
+INSERT INTO record_label (record_label) VALUES ("Sue Records");
+
+--Join tables to display artist name with label
+
+SELECT singers.name, record_label.record_label 
+FROM singers
+JOIN record_label
+ON singers.id = record_label.id;
+
+-- Join tables to display artist with accomplishments 
+SELECT singers.name, accomplishments.grammys, accomplishments.movies, accomplishments.albums
+FROM singers
+LEFT OUTER JOIN accomplishments
+ON singers.id = accomplishments.id
+
+
