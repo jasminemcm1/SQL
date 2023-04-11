@@ -47,3 +47,13 @@ LIMIT 10
 
 -- Just based on this simple query I could determine that spotify users prefer songs that are loud and long-lasting. 
 For example Bad Habits by Ed Sheeran shows up in all three tables.
+
+--Calculate the average popularity for the artists in the Spotify data table. 
+Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+WITH AVG_popularity AS 
+(SELECT AVG(popularity) AS popularity, artist_name
+FROM Spotifydata
+GROUP BY artist_name)
+SELECT artist_name, popularity, 'Top Star' AS tag
+FROM AVG_popularity
+WHERE popularity >= 90
