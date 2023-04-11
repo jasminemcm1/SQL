@@ -26,3 +26,24 @@ time_signature integer NOT NULL )
 #Then I inserted the Spotify Data .csv into the table.
 
 #Next, I explored the data using the following SQL. 
+#First I determined the Top 10 tracks by popularity
+SELECT track_name, artist_name, popularity
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10
+
+#Then I sorted the data to determine the loudest tracks.
+SELECT artist_name, track_name, MAX(loudness)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY loudness desc
+
+#Last I filtered the data to show the top 10 songs with the largest duration.
+SELECT track_name, MAX(duration_ms)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY duration_ms desc
+LIMIT 10
+
+-- Just based on this simple query I could determine that spotify users prefer songs that are loud and long-lasting. 
+For example Bad Habits by Ed Sheeran shows up in all three tables.
